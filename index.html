@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sundarban Geographic Data Viewer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sundarban Geographic Data Viewer</h1>
+            <p>Select District → SS → Village to explore the Sundarban region</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="selection-panel">
+                    <h3>Geographic Selection</h3>
+                    
+                    <!-- District Selection -->
+                    <div class="selection-group">
+                        <label for="district-select">1. Select District:</label>
+                        <select id="district-select" class="form-select">
+                            <option value="">-- Choose District --</option>
+                        </select>
+                    </div>
+                    
+                    <!-- SS Selection -->
+                    <div class="selection-group">
+                        <label for="ss-select">2. Select SS:</label>
+                        <select id="ss-select" class="form-select" disabled>
+                            <option value="">-- Choose SS --</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Village Selection -->
+                    <div class="selection-group">
+                        <label for="village-select">3. Select Village:</label>
+                        <select id="village-select" class="form-select" disabled>
+                            <option value="">-- Choose Village --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="reset-btn" class="btn btn-secondary">Reset Selection</button>
+                        <button id="zoom-btn" class="btn btn-primary" disabled>Zoom to Selection</button>
+                    </div>
+                </div>
+                
+                <div class="info-panel">
+                    <h3>Selection Information</h3>
+                    <div id="selection-info">
+                        <p>No selection made yet</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div id="map"></div>
+                <div class="map-controls">
+                    <button id="layer-toggle" class="btn btn-info">Toggle Layers</button>
+                    <div class="legend">
+                        <h4>Legend</h4>
+                        <div class="legend-item">
+                            <span class="legend-color district-color"></span>
+                            <span>Districts</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color ss-color"></span>
+                            <span>SS Areas</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color village-color"></span>
+                            <span>Villages</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/shpjs@latest/dist/shp.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
